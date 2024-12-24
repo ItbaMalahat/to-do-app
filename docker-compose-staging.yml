@@ -1,0 +1,17 @@
+version: '3'
+services:
+  frontend:
+    image: to-do-app-frontend
+    ports:
+      - "3000:3000"
+  backend:
+    image: to-do-app-backend
+    ports:
+      - "5000:5000"
+  database:
+    image: to-do-app-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
