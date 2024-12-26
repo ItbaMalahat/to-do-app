@@ -6,14 +6,14 @@ const App = () => {
   const [task, setTask] = useState('');
 
   const fetchTodos = async () => {
-    const response = await fetch('http://localhost:5000/todos');
+    const response = await fetch('http://3.14.21.62:5000/todos');
     const data = await response.json();
     setTodos(data);
   };
 
   const addTodo = async () => {
     if (!task.trim()) return;
-    const response = await fetch('http://localhost:5000/todos', {
+    const response = await fetch('http://3.14.21.62:5000/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ task }),
@@ -26,7 +26,7 @@ const App = () => {
   };
 
   const deleteTodo = async (id) => {
-    await fetch(`http://localhost:5000/todos/${id}`, { method: 'DELETE' });
+    await fetch(`http://3.14.21.62:5000/todos/${id}`, { method: 'DELETE' });
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
